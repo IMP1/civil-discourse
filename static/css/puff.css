@@ -49,7 +49,7 @@ body {
 font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
 font-size: 1rem;
 line-height: 1.65rem;
-background: #ffffff;
+background: #fff;
 color: #222222;
 }
 /* Links */
@@ -253,8 +253,8 @@ Inputs
     input[type="time"],
     input[type="search"],
     input[type="datetime-local"] {
-        background: #ffffff;
-        border: 1px solid #cccccc;
+        background: #fff;
+        border: 1px solid #ccc;
         position: relative;
         z-index: 2;
         -webkit-appearance: none;
@@ -394,8 +394,8 @@ Inputs
     Search Bar
     ----------------------------------------------*/
     input[type="search"] {
-        background: none repeat scroll 0% 0% #FFF;
-        border: 1px solid #CCC;
+        background: none repeat scroll 0% 0% #fff;
+        border: 1px solid #ccc;
         vertical-align: text-bottom;
         font-size: 1em;
         line-height: 1.1rem;
@@ -496,6 +496,19 @@ Centralised Things
     text-align: center;
 }
 
+
+.break {
+    margin-top: 4rem;
+}
+
+.break-small {
+    margin-top: 2rem;
+}
+
+.break-large {
+    margin-top: 6rem;
+}
+
     /*
     Global Nav Bar
     --------------------------------------*/
@@ -550,8 +563,8 @@ Centralised Things
         top: 0.2em;
     }
     input[type="search"] {
-        background: none repeat scroll 0% 0% #FFF;
-        border: 1px solid #CCC;
+        background: none repeat scroll 0% 0% #fff;
+        border: 1px solid #ccc;
         position: relative;
         top: 0px;
         vertical-align: text-bottom;
@@ -571,7 +584,7 @@ Centralised Things
         border-radius: 0;
     }
     .prepend {
-        background-color: #E0E3E5;
+        background-color: #e0e3e5;
         min-width: 1rem;
         line-height: 1.1rem;
         height: 1.8rem;
@@ -580,7 +593,7 @@ Centralised Things
         border: 1px solid #ccc;
         border-bottom-left-radius: 0.5em;
         border-top-left-radius: 0.5em;
-        border-right-color: #E0E3E5;
+        border-right-color: #e0e3e5;
         float: left;
     }
     .append {
@@ -697,22 +710,22 @@ Centralised Things
         height: 10em;
     }
     @keyframes highlight-border-red {
-        0%   {border-color: #F00;}
-        33%  {border-color: #A94442;}
-        66%  {border-color: #F2DEDE;}
-        100% {border-color: #CCC;}
+        0%   {border-color: #f00;}
+        33%  {border-color: #a94442;}
+        66%  {border-color: #f2dede;}
+        100% {border-color: #ccc;}
     }
     input.error {
         animation: highlight-border-red 6s linear;
     }
     .error-message {
         display: inline-block;
-        color: #A94442;
+        color: #a94442;
     }
     input.clarified {
         margin-bottom: 0;
     }
-    #currency.prepend {
+    .currency.prepend {
         padding-left: 0.4em;
         padding-right: 0.2em;
         border-radius: 0;
@@ -725,30 +738,6 @@ Centralised Things
         text-align: center;
         margin-bottom: 0.5em;
         width: 18em;
-    }
-
-    /*
-    Registration
-    --------------------------------------*/
-    form#user-registration {
-        margin-left: 4em;
-    }
-    form#user-registration input[type="submit"]{
-        margin-top: 2em;
-        margin-left: 6em;
-    }
-
-    /*
-    Logging In
-    --------------------------------------*/
-    form#login-form {
-        text-align: center;
-    }
-    form#login-form input[type="text"] {
-        margin-top: 5em;
-    }
-    form#login-form input[type="submit"]{
-        margin-top: 1em;
     }
 
     /*
@@ -779,12 +768,12 @@ Centralised Things
         padding-right: 1em;
     }
 
-    footer #links {
+    footer .links {
         font-size: 1.5em;
         color: rgba(0, 0, 0, 0.8);
     }
 
-    footer #credits {
+    footer .credits {
         margin-top: 3em;
     }
 
@@ -809,7 +798,7 @@ Style
     footer {
         color: rgba(0, 0, 0, 0.4);
     }
-    footer #credits h3 {
+    footer .credits h3 {
         color: rgba(0, 0, 0, 0.4);
     }
     footer a {
