@@ -1,0 +1,31 @@
+{{ extend 'layout.html' }}
+<section class="central">
+    <h2>Register to Civil Discourse</h2>
+    <p class="break">
+        {{ =T('Registering to Civil Discourse is as simple as choosing a unique username and a nice secure password!') }}
+    </p>
+    <form id="user-registration" action="#" enctype="multipart/form-data" method="post" class="centre-align">
+        <div class="central">
+            <input name="username" id="username"
+                   class="string {{ =('error clarified' if form.errors.username else '') }}"
+                   placeholder="{{ =T('Username') }}"
+                   autofocus="true"
+                   type="text"
+                   value="">
+            <br>
+            {{ include 'form/error/username.html' }}
+            <input name="password" id="password"
+                   class="password {{ =('error clarified' if form.errors.username else '') }}"
+                   placeholder="{{ =T('Password') }}"
+                   type="password"
+                   value="">
+            <br>
+            {{ ="" }}
+        </div>
+        <input type="submit" value="{{ =T('Register') }}">
+        <div style="display:none;">
+            <input name="_formkey" type="hidden" value="{{ =form.formkey }}">
+            <input name="_formname" type="hidden" value="register">
+        </div>
+    </form>
+</section>
