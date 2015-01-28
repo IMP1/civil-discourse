@@ -18,26 +18,26 @@
     <body>
         <header>
             <h1>
-                {{block headline}}
+                {{ block headline }}
                 Civil Discourse
-                {{end}}
+                {{ end }}
             </h1>
             <nav class="horizontal">
                 <ul>
                     <li><a href="{{ =URL('default', 'index') }}" tabindex="1"><span class="fa fa-home"></span> {{ =T('Home') }}</a></li>
                     <li><a href="{{ =URL('discussion', 'new') }}" tabindex="3"><span class="fa fa-plus"></span> {{ =T('New Discussion') }}</a></li>
                 </ul>
-                <form action="{{ =URL('bootable', 'search.html') }}" method="post">
+                <form action="{{ =URL('discussion', 'search.html') }}" method="post">
                     <input type="search" name="search_text" class="appended prepended" placeholder="{{ =T('Search Discussions') }}" tabindex="2">
                     <input type="submit" value="Go" class="append search" tabindex="2">
                 </form>
                 <ul class="float-right">
                     {{ if session.logged_in_user: }}
                     <li><a href="{{ =URL('user', 'profile') }}" tabindex="3">{{ =db.user(session.logged_in_user).username }}</a></li>
-                    <li><a href="{{ =URL('user', 'logout') }}" tabindex="3">Log Out</a></li>
+                    <li><a href="{{ =URL('user', 'logout') }}" tabindex="3">{{ =T('Log Out') }}</a></li>
                     {{ else: }}
-                    <li><a href="{{ =URL('user', 'login') }}" tabindex="3">Log In</a></li>
-                    <li><a href="{{ =URL('user', 'new') }}" tabindex="3">Register</a></li>
+                    <li><a href="{{ =URL('user', 'login') }}" tabindex="3">{{ =T('Log In') }}</a></li>
+                    <li><a href="{{ =URL('user', 'register') }}" tabindex="3">{{ =T('Register') }}</a></li>
                     {{ pass }}
                 </ul>
             </nav>

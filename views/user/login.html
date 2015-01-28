@@ -1,22 +1,25 @@
 {{ extend 'layout.html' }}
 <section>
     <h2>Login</h2>
-    <form id="login-form" action="#" enctype="multipart/form-data" method="post" class="central">
+    <form id="login-form" action="#" enctype="multipart/form-data" method="post" class="centre-align break">
         <div class="central">
-            <input name="username" id="user_username"
+            <input name="username" id="username"
                    class="string {{ =('error clarified' if form.errors.username else '') }}"
-                   placeholder="Username"
+                   placeholder="{{ =T('Username') }}"
                    autofocus="true"
                    type="text"
                    value="">
             <br>
-            {{ if form.errors.username == T('Value not in database'): }}
-            <small class="error-message">{{ =T('There is no user with that username.') }}</small>
-            {{ elif form.errors.username == T('Enter a value'): }}
-            <small class="error-message">{{ =T('You must enter a username.') }}</small>
-            {{ pass }}
+            {{ include 'form/error/username.html' }}
+            <input name="password" id="password"
+                   class="password {{ =('error clarified' if form.errors.username else '') }}"
+                   placeholder="{{ =T('Password') }}"
+                   type="password"
+                   value="">
+            <br>
+            
         </div>
-        <input type="submit" value="Log in">
+        <input type="submit" value="{{ =T('Log in') }}">
         <div style="display:none;">
             <input name="_formkey" type="hidden" value="{{ =form.formkey }}">
             <input name="_formname" type="hidden" value="login">
