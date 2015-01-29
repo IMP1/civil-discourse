@@ -3,7 +3,7 @@
 # 
 def login():
     # Create the form.
-    form = SQLFORM(db.user)
+    form = SQLFORM.factory(db.user)
     # If the form is valid:
     if form.validate() and db(db.user.username == form.vars.username).select():
             # Log the user in.
@@ -22,9 +22,10 @@ def login():
                 redirect(URL('default', 'index.html'))
     return dict(form=form)
 
+# 
 def register():
     # Create the form.
-    form = SQLFORM(db.user)
+    form = SQLFORM.factory(db.user)
     if form.validate():
         # Add the user to the database.
         user_id = db.user.insert(**form.vars)
