@@ -12,3 +12,6 @@
 {{ elif form.errors.username: }}
 <small class="error-message">{{ =form.errors.username }}</small>
 {{ pass }}
+{{ if form.errors.username: }}
+<br>
+{{ pass }}
