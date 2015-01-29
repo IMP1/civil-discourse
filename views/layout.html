@@ -17,17 +17,19 @@
     </head>
     <body>
         <header>
-            <h1>
-                {{ block headline }}
-                Civil Discourse
-                {{ end }}
-            </h1>
-            <nav class="horizontal">
+            <div role=banner>
+                <h1>
+                    {{ block headline }}
+                    Civil Discourse
+                    {{ end }}
+                </h1>
+            </div>
+            <nav class="horizontal" role=navigation>
                 <ul>
                     <li><a href="{{ =URL('default', 'index') }}" tabindex="1"><span class="fa fa-home"></span> {{ =T('Home') }}</a></li>
                     <li><a href="{{ =URL('discussion', 'new') }}" tabindex="3"><span class="fa fa-plus"></span> {{ =T('New Discussion') }}</a></li>
                 </ul>
-                <form action="{{ =URL('discussion', 'search.html') }}" method="post">
+                <form action="{{ =URL('discussion', 'search.html') }}" method="post" role=search>
                     <input type="search" name="search_text" class="appended prepended" placeholder="{{ =T('Search Discussions') }}" tabindex="2">
                     <input type="submit" value="Go" class="append search" tabindex="2">
                 </form>
@@ -42,7 +44,7 @@
                 </ul>
             </nav>
         </header>
-        <main>
+        <main role=main>
             {{ include }}
             {{ pass }}
         </main>
