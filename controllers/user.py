@@ -42,3 +42,7 @@ def register():
             # Otherwise go to the homepage.
             redirect(URL('default', 'index.html'))
     return dict(form=form)
+
+def logout():
+    del session.logged_in_user
+    redirect(URL('default', 'index.html'))
