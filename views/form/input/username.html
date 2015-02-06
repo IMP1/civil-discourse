@@ -9,8 +9,10 @@
 <small class="error-message">{{ =T('There is no user with that username.') }}</small>
 {{ elif form.errors.username == T('Enter a value'): }}
 <small class="error-message">{{ =T('You must enter a username; this cannot be blank.') }}</small>
+{{ elif form.errors.username == T('Value already in database or empty'): }}
+<small class="error-message">{{ =T('That username is already in use.') }}</small>
 {{ elif form.errors.username: }}
-<small class="error-message">{{ =form.errors.username }}</small>
+<small class="error-message">{{ =T(form.errors.username) }}</small>
 {{ pass }}
 {{ if form.errors.username: }}
 <br>
