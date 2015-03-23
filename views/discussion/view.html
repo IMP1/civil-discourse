@@ -31,7 +31,6 @@
     {{ pass }}
 </article>
 {{ if session.logged_in_user: }}
-<hr />
 <form id="convo-addition"
       action="#" enctype="multipart/form-data" method="post" 
       class="centre-align">
@@ -55,4 +54,10 @@
                value="{{ =form.formname }}" />
     </div>
 </form>
+{{ else: }}
+<div class="centre-align">
+    You need to be signed in to add to this discussion.
+    <a href="{{ =URL('user', 'login', vars={'redirect': URL(args=request.args, vars=request.vars)}) }}">Log in</a> or 
+    <a href="{{ =URL('user', 'register', vars={'redirect': URL(args=request.args, vars=request.vars)}) }}">Register</a>.
+</div>
 {{ pass }}
