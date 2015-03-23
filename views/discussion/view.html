@@ -1,4 +1,14 @@
 {{ extend 'layout.html' }}
+{{ block flash }}
+{{ if form.errors: }}
+<div role=note class="alert alert-error">
+    {{ =response.flash }}
+</div>
+{{ elif response.flash: }}
+<div role=note class="alert alert-success">
+    {{ =response.flash }}
+</div>
+{{ pass }}
 <article>
     <h2 class="centre-align">{{ =db.conversation[discussion_id].title }}</h2>
     {{ for message in db(db.message.conversation == discussion_id).select(orderby=db.message.time): }}
@@ -21,7 +31,12 @@
           class="centre-align">
         <div class="central">
             <textarea name="contents" id="contents"
+                      class="{{ =('error clarified' if form.errors.contents else '') }}"
                       placeholder="{{ =T('Write your reply here.') }}"></textarea>
+            {{ if form.errors.contents: }}
+            <small class="error-message">{{ =T(form.errors.contents) }}</small>
+            <br>
+            {{ pass }}
         </div>
         <input type="submit" 
                value="{{ =T('Add to Discussion') }}" />

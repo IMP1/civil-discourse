@@ -1,4 +1,14 @@
 {{ extend 'layout.html' }}
+{{ block flash }}
+{{ if form.errors: }}
+<div role=note class="alert alert-error">
+    {{ =response.flash }}
+</div>
+{{ elif response.flash: }}
+<div role=note class="alert alert-success">
+    {{ =response.flash }}
+</div>
+{{ pass }}
 <section>
     <h2>{{ =T("Create a new discussion") }}</h2>
     <p>
@@ -12,10 +22,21 @@
             <input name="title" id="title"
                    autofocus="true"
                    placeholder="{{ =T('Discussion Title') }}"
+                   value="{{ =request.vars.title or '' }}"
+                   class="{{ =('error clarified' if form.errors.title else '') }}"
                    type="text" />
+            <br>
+            {{ if form.errors.title: }}
+            <small class="error-message">{{ =T(form.errors.title) }}</small>
+            <br>
+            {{ pass }}
             <textarea name="contents" id="contents"
                       placeholder="{{ =T('Discussion Topic') }}"
-                      class="message-creation"></textarea>
+                      class="message-creation {{ =('error clarified' if form.errors.contents else '') }}">{{ =request.vars.contents or '' }}</textarea>
+            {{ if form.errors.contents: }}
+            <small class="error-message">{{ =T(form.errors.contents) }}</small>
+            <br>
+            {{ pass }}
         </div>
         <input type="submit" 
                value="{{ =T('Start Discussion') }}" />
