@@ -1,10 +1,23 @@
 {{ extend 'layout.html' }}
+{{ block flash }}
+            {{ if form.errors: }}
+            <div role=note class="alert alert-error">
+                {{ =response.flash }}
+            </div>
+            {{ elif response.flash: }}
+            <div role=note class="alert alert-success">
+                {{ =response.flash }}
+            </div>
+            {{ pass }}
+{{ end }}
 <section>
     <h2>Register to Civil Discourse</h2>
     <p class="break">
         {{ =T('Registering to Civil Discourse is as simple as choosing a unique username and a nice secure password!') }}
     </p>
-    <form id="user-registration" action="#" enctype="multipart/form-data" method="post" class="centre-align">
+    <form id="user-registration" 
+          action="#" enctype="multipart/form-data" method="post" 
+          class="centre-align">
         <div class="central">
             {{ include 'form/input/username.html' }}
             {{ include 'form/input/password.html' }}

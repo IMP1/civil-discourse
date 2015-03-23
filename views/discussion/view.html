@@ -1,1 +1,37 @@
 {{ extend 'layout.html' }}
+<article>
+    {{ for message in db(db.message.conversation == discussion_id).select(orderby=db.message.time): }}
+    <div id="message-{{=message.id}}" class="message">
+        <div class="message-author">
+            {{ =db.user(message.author).username }}
+        </div>
+        <div class="arrow-left"></div>
+        <div class="message-content">
+            <p>
+                {{ =message.contents }}
+            </p>
+        </div>
+    </div>
+    {{ pass }}
+    {{ if session.logged_in_user: }}
+    <hr />
+    <form id="convo-addition"
+          action="#" enctype="multipart/form-data" method="post" 
+          class="centre-align">
+        <div class="central">
+            <textarea name="contents" id="contents"
+                      placeholder="{{ =T('Write your reply here.') }}"></textarea>
+        </div>
+        <input type="submit" 
+               value="{{ =T('Add to Discussion') }}" />
+        <div style="display:none;">
+            <input name="_formkey" 
+                   type="hidden" 
+                   value="{{ =form.formkey }}" />
+            <input name="_formname" 
+                   type="hidden" 
+                   value="{{ =form.formname }}" />
+        </div>
+    </form>
+    {{ pass }}
+</article>

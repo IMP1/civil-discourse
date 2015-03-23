@@ -26,23 +26,30 @@
             </div>
             <nav class="horizontal" role=navigation>
                 <ul>
-                    <li><a href="{{ =URL('default', 'index') }}" tabindex="1"><span class="fa fa-home"></span> {{ =T('Home') }}</a></li>
-                    <li><a href="{{ =URL('discussion', 'new') }}" tabindex="3"><span class="fa fa-plus"></span> {{ =T('New Discussion') }}</a></li>
+                    <li><a href="{{ =URL('default', 'index') }}" tabindex="1"><span class="fa fa-home"></span>{{ =T('Home') }}</a></li>
+                    <li><a href="{{ =URL('discussion', 'new') }}" tabindex="1"><span class="fa fa-plus"></span>{{ =T('New Discussion') }}</a></li>
                 </ul>
-                <form action="{{ =URL('discussion', 'search.html') }}" method="post" role=search>
-                    <input type="search" name="search_text" class="appended prepended" placeholder="{{ =T('Search Discussions') }}" tabindex="2">
-                    <input type="submit" value="Go" class="append search" tabindex="2">
+                <form action="{{ =URL('discussion', 'search') }}" method="post" role=search>
+                    <input type="search" role=search name="search_text" class="appended prepended" placeholder="{{ =T('Search Discussions') }}" tabindex="2">
+                    <input type="submit" value="{{ =T('Go') }}" class="append search" tabindex="2">
                 </form>
                 <ul class="float-right">
                     {{ if session.logged_in_user: }}
-                    <li><a href="{{ =URL('user', 'profile') }}" tabindex="3">{{ =db.user(session.logged_in_user).username }}</a></li>
-                    <li><a href="{{ =URL('user', 'logout') }}" tabindex="3">{{ =T('Log Out') }}</a></li>
+                    <li><a href="{{ =URL('user', 'profile') }}" tabindex="3"><span class="fa fa-user"></span>{{ =db.user(session.logged_in_user).username }}'s Profile</a></li>
+                    <li><a href="{{ =URL('user', 'logout') }}" tabindex="3"><span class="fa fa-sign-out"></span>{{ =T('Log Out') }}</a></li>
                     {{ else: }}
-                    <li><a href="{{ =URL('user', 'login') }}" tabindex="3">{{ =T('Log In') }}</a></li>
-                    <li><a href="{{ =URL('user', 'register') }}" tabindex="3">{{ =T('Register') }}</a></li>
+                    <li><a href="{{ =URL('user', 'register') }}" tabindex="3"><span class="fa fa-user-plus"></span>{{ =T('Register') }}</a></li>
+                    <li><a href="{{ =URL('user', 'login') }}" tabindex="3"><span class="fa fa-sign-in"></span>{{ =T('Log In') }}</a></li>
                     {{ pass }}
                 </ul>
             </nav>
+            {{ block flash }}
+            {{ if response.flash: }}
+            <div role=note class="alert alert-success">
+                {{ =T(response.flash) }}
+            </div>
+            {{ pass }}
+            {{ end }}
         </header>
         <main role=main>
             {{ include }}

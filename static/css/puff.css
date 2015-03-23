@@ -46,27 +46,27 @@ Funcionality
 Typography
 ----------------------------------------------*/
 body {
-font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
-font-size: 1rem;
-line-height: 1.65rem;
-background: #fff;
-color: #222222;
+    font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65rem;
+    background: #fff;
+    color: #222222;
 }
 /* Links */
 a {
-color: #134da5;
-text-decoration: none;
+    color: #134da5;
+    text-decoration: none;
 }
 a,
 a:hover,
 a:link,
 a:visited {
-text-decoration: none;
+    text-decoration: none;
 }
 a:focus,
 a:hover {
-color: #de2c3b;
-border-bottom: 1px solid rgba(222, 44, 59, 0.4);
+    color: #de2c3b;
+    border-bottom: 1px solid rgba(222, 44, 59, 0.4);
 }
 a.inactive,
 a.inactive:hover,
@@ -74,9 +74,9 @@ a.inactive:link,
 a.inactive:visited,
 a.inactive:focus,
 a.inactive:hover {
-color: #888;
-text-decoration: none;
-border-bottom: none;
+    color: #888;
+    text-decoration: none;
+    border-bottom: none;
 }
 /* Headings */
 h1,
@@ -85,128 +85,134 @@ h3,
 h4,
 h5,
 h6 {
-font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
-font-weight: bold;
-color: #000000;
-text-rendering: optimizeLegibility;
-margin: 0.5em 0 0.5em 0;
+    font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #000000;
+    text-rendering: optimizeLegibility;
+    margin: 0.5em 0 0.5em 0;
 }
 h1 {
-line-height: 110%;
-font-size: 2.25em;
+    line-height: 110%;
+    font-size: 2.25em;
 }
 h2 {
-line-height: 110%;
-font-size: 1.5em;
-margin-bottom: 0.7em;
+    line-height: 110%;
+    font-size: 1.5em;
+    margin-bottom: 0.7em;
 }
 h3 {
-line-height: 130%;
-font-size: 1.3125em;
+    line-height: 130%;
+    font-size: 1.3125em;
 }
 h4 {
-line-height: 130%;
-font-size: 1.125em;
+    line-height: 130%;
+    font-size: 1.125em;
 }
 h5 {
-font-size: 1em;
+    font-size: 1em;
 }
 h6 {
-font-size: 0.9em;
+    font-size: 0.9em;
 }
 header {
-margin-top: 1rem;
-margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 header h1 {
-text-align: center;
+    text-align: center;
 }
 /* Blockquote */
 blockquote {
-position: relative;
-font-style: italic;
-font-size: 1.125em;
-margin-left: 2.5em;
-padding-left: 1.65em;
-border-left: 2px solid #ccc;
+    position: relative;
+    font-style: italic;
+    font-size: 1.125em;
+    margin-left: 2.5em;
+    padding-left: 1.65em;
+    border-left: 2px solid #ccc;
 }
 blockquote p {
-margin-bottom: .5em;
+    margin-bottom: .5em;
 }
 blockquote small,
 blockquote cite {
-color: rgba(0, 0, 0, 0.4);
-font-style: italic;
-font-size: 0.8em;
-line-height: 100%;
+    color: rgba(0, 0, 0, 0.4);
+    font-style: italic;
+    font-size: 0.8em;
+    line-height: 100%;
 }
 blockquote em,
 blockquote i {
-font-style: normal;
+    font-style: normal;
 }
 /* Address */
 address {
-font-style: normal;
+    font-style: normal;
 }
 /* Text */
 s,
 del {
-text-decoration: line-through;
+    text-decoration: line-through;
 }
 abbr[title],
 dfn[title] {
-border-bottom: 1px dotted #0f0f0f;
-cursor: help;
+    border-bottom: 1px dotted #0f0f0f;
+    cursor: help;
 }
 strong,
 b {
-font-weight: bold;
+    font-weight: bold;
 }
 em,
 i {
-font-style: italic;
+    font-style: italic;
 }
 sub,
 sup {
-font-size: 0.7em;
-line-height: 0;
-position: relative;
+    font-size: 0.7em;
+    line-height: 0;
+    position: relative;
 }
 sup {
-top: -0.5em;
+    top: -0.5em;
 }
 sub {
-bottom: -0.25em;
+    bottom: -0.25em;
 }
 figcaption {
-margin: 0.3em 0;
-font-size: 0.8em;
-font-style: italic;
+    margin: 0.3em 0;
+    font-size: 0.8em;
+    font-style: italic;
 }
 ins,
 u {
-text-decoration: underline;
+    text-decoration: underline;
 }
 mark {
-background-color: #ffc800;
-color: #0f0f0f;
-text-decoration: none;
+    background-color: #ffc800;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 p,
 ul,
 ol,
 dl,
 blockquote,
-hr,
 pre,
+hr,
 table,
 form,
 fieldset,
 figure,
 address {
-margin-bottom: 1.65em;
+    margin-bottom: 1.65em;
 }
-
+hr {
+    display: block; 
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid;
+    border-color: inherit;
+}
 
 /*
 Inputs
@@ -461,6 +467,28 @@ div.alert {
     text-align: center;
 }
 
+div.alert {
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+div.alert-success {
+    background-color: rgb(223, 240, 216);
+    border-color: rgb(214, 233, 198);
+    color: rgb(60, 118, 61);
+}
+
+div.alert-error {
+    background-color: #F2DEDE;
+    border-color: #EBCCD1;
+    color: #A94442;
+}
+
 label > input[type="file"] {
     display: none;
 }
@@ -657,10 +685,10 @@ Centralised Things
         width: 2.5em;
     }
     .name-long {
-        width: 14rem;
+        width: 14em;
     }
     .name-short {
-        width: 12rem;
+        width: 12em;
     }
     .address-long {
         width: 16em;

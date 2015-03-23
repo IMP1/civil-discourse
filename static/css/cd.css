@@ -1,0 +1,56 @@
+header > nav .fa {
+    margin-right: 0.2rem;
+}
+
+textarea.message-creation {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 8rem;
+    min-height: 4rem;
+}
+
+.message-author,
+.message-content {
+    display: inline-block;
+}
+
+.message-author {
+    width: 10%;
+    text-align: right;
+}
+
+.message-content {
+    width: 80%;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 0.5rem;
+    background-color: rgb(224, 224, 224);
+    padding: 1rem;
+    padding-bottom: 0;
+}
+
+.message-content p {
+    margin-bottom: 1rem;
+}
+
+div.arrow-left {
+    display: inline-block;
+    margin: 0;
+    border: 10px solid transparent;
+    border-right: 10px solid rgb(192, 192, 192);
+    position: relative;
+    top: 0.3em;
+    left: 0.3em;
+}
+
+div.arrow-right {
+    display: inline-block;
+    margin: 0;
+    border: 10px solid transparent;
+    border-left: 10px solid rgb(192, 192, 192);
+    position: relative;
+    top: 0.3em;
+    right: 0.3em;
+}
+
+#convo-creation

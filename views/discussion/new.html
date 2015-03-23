@@ -1,1 +1,27 @@
 {{ extend 'layout.html' }}
+<section>
+    <h2>{{ =T("Create a new discussion") }}</h2>
+    <p>
+        {{ =T("Enter in the topic for your discussion into the box below.") }}
+        {{ =T("You'll be sent to your newly created discussion and from there you can copy & paste the URL to send round to encourage discussion.") }}
+    </p>
+    <form id="convo-creation"
+          action="#" enctype="multipart/form-data" method="post" 
+          class="centre-align">
+        <div class="central">
+            <textarea name="contents" id="contents"
+                      autofocus="true"
+                      class="message-creation"></textarea>
+        </div>
+        <input type="submit" 
+               value="{{ =T('Start Discussion') }}" />
+        <div style="display:none;">
+            <input name="_formkey" 
+                   type="hidden" 
+                   value="{{ =form.formkey }}" />
+            <input name="_formname" 
+                   type="hidden" 
+                   value="{{ =form.formname }}" />
+        </div>
+    </form>
+</section>

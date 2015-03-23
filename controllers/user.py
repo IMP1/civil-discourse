@@ -4,8 +4,8 @@
 def login():
     # Create the form.
     form = FORM(
-                INPUT(_name='username', requires=IS_IN_DB(db, 'user.username')),
-                INPUT(_name='password', requires=IS_NOT_EMPTY()),
+                INPUT(_name='username', requires=IS_IN_DB(db, 'user.username', error_message="That username doesn't exist.")),
+                INPUT(_name='password', requires=IS_NOT_EMPTY(error_message="That password is incorrect.")),
                 INPUT(_type='submit')
                )
     # If the form is valid:
@@ -24,7 +24,7 @@ def login():
                 redirect(target)
             else:
                 # Otherwise go to the homepage.
-                redirect(URL('default', 'index.html'))
+                redirect(URL('default', 'index'))
         else:
             form.errors.password = "Incorrect password"
     return dict(form=form)
@@ -47,9 +47,13 @@ def register():
             redirect(target)
         else:
             # Otherwise go to the homepage.
-            redirect(URL('default', 'index.html'))
+            redirect(URL('default', 'index'))
     return dict(form=form)
 
 def logout():
+    session.flash = "You've successfully been logged out."
     del session.logged_in_user
-    redirect(URL('default', 'index.html'))
+    redirect(URL('default', 'index'))
+    
+def profile():
+    return dict()
