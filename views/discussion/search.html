@@ -1,1 +1,13 @@
 {{ extend 'layout.html' }}
+<section>
+    <h2>Search Results</h2>
+    <ul>
+        {{ for discussion in db(db.conversation.id > 0).select(): }}
+        <li>
+            <a href="{{ =URL('discussion', 'view', args=[discussion.id]) }}">
+                {{ =discussion.title }}
+            </a>
+        </li>
+        {{ pass }}
+    </ul>
+</section>
