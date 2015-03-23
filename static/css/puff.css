@@ -513,6 +513,11 @@ div.small {
     list-style-type: none;
 }
 
+.fa {
+    font-size: 1.1rem;
+    line-height: 1rem;
+}
+
 /*
 Centralised Things
 --------------------------------------*/
@@ -570,7 +575,6 @@ Centralised Things
         margin-right: 0;
     }
     nav > ul > li > a > .fa {
-        font-size: 1rem;
         padding-right: 0.1em;
     }
     nav form {
