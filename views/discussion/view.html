@@ -1,4 +1,8 @@
 {{ extend 'layout.html' }}
+{{ block scripts }}
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="{{ =URL('static', 'js/discussion_refresher.js') }}"></script>
+{{ end }}
 {{ block flash }}
 {{ if form.errors: }}
 <div role=note class="alert alert-error">
@@ -9,6 +13,7 @@
     {{ =response.flash }}
 </div>
 {{ pass }}
+{{ end }}
 <article>
     <h2 class="centre-align">{{ =db.conversation[discussion_id].title }}</h2>
     {{ for message in db(db.message.conversation == discussion_id).select(orderby=db.message.time): }}
