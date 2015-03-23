@@ -7,10 +7,10 @@ def new():
         session.flash = SPAN('You are not currently signed in. Sign in or ', A('Register', _href=URL('user', 'new')), '!')
         redirect(URL('user', 'login'))
     # Create the form.
-    form = SQLFORM.factory(db.message.contents)
+    form = SQLFORM.factory(db.conversation.title, db.message.contents)
     if form.validate():
         # 1. Create conversation
-        discussion_id = db.conversation.insert()
+        discussion_id = db.conversation.insert(title=form.vars.title)
         # 2. Create message with filled in information (time now, signed in user, conversation just created)
         message_id = db.message.insert(author=session.logged_in_user, conversation=discussion_id, contents=form.vars.contents, time=datetime.datetime.utcnow())
         # Redirect to the new discussion

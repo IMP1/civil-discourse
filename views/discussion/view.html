@@ -1,5 +1,6 @@
 {{ extend 'layout.html' }}
 <article>
+    <h2 class="centre-align">{{ =db.conversation[discussion_id].title }}</h2>
     {{ for message in db(db.message.conversation == discussion_id).select(orderby=db.message.time): }}
     <div id="message-{{=message.id}}" class="message">
         <div class="message-author">

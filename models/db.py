@@ -6,7 +6,9 @@ db.define_table('user',
                )
 
 # Groups messages
-db.define_table('conversation')
+db.define_table('conversation',
+                    Field('title', 'string', requires=[IS_NOT_EMPTY(error_message='You must provide a discussion title.')]),
+               )
 
 db.define_table('message',
                     Field('author', db.user),

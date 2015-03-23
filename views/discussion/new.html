@@ -2,15 +2,19 @@
 <section>
     <h2>{{ =T("Create a new discussion") }}</h2>
     <p>
-        {{ =T("Enter in the topic for your discussion into the box below.") }}
+        {{ =T("Enter a discussion title and the topic for your discussion into the boxes below.") }}
         {{ =T("You'll be sent to your newly created discussion and from there you can copy & paste the URL to send round to encourage discussion.") }}
     </p>
     <form id="convo-creation"
           action="#" enctype="multipart/form-data" method="post" 
           class="centre-align">
         <div class="central">
+            <input name="title" id="title"
+                   autofocus="true"
+                   placeholder="{{ =T('Discussion Title') }}"
+                   type="text" />
             <textarea name="contents" id="contents"
-                      autofocus="true"
+                      placeholder="{{ =T('Discussion Topic') }}"
                       class="message-creation"></textarea>
         </div>
         <input type="submit" 
