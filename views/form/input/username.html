@@ -1,5 +1,5 @@
 <input name="username" id="username"
-       class="string {{ =('error clarified' if form.errors.username else '') }}"
+       class="{{ =('error clarified' if form.errors.username else '') }}"
        placeholder="{{ =T('Username') }}"
        autofocus="true"
        type="text"
