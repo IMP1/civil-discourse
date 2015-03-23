@@ -2,6 +2,9 @@
 
 # 
 def login():
+    print(request.vars)
+    if request.vars.redirect:
+        session.redirection = request.vars.redirect
     # Create the form.
     form = FORM(
                 INPUT(_name='username', requires=IS_IN_DB(db, 'user.username', error_message="That username doesn't exist.")),
@@ -31,6 +34,8 @@ def login():
 
 # 
 def register():
+    if request.vars.redirect:
+        session.redirection = request.vars.redirect
     # Create the form.
     form = SQLFORM.factory(db.user)
     if form.validate():
