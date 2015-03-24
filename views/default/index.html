@@ -1,1 +1,11 @@
 {{ extend 'layout.html' }}
+<section>
+    <h2>Recent Comments</h2>
+    <ul>
+        {{ for message in db(db.message.id > 0).select(orderby=db.message.time, limitby=(0, 10)): }}
+        <li>
+            <a href="{{ =URL('discussion', 'view', args=[message.conversation], anchor='message-'+str(message.id)) }}">{{ =message.contents }}</a>
+        </li>
+        {{ pass }}
+    </ul>
+</section>
