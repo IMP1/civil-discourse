@@ -29,3 +29,6 @@ def view():
 
 def search():
     return dict()
+
+def rules():
+    return dict()
