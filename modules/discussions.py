@@ -1,3 +1,5 @@
+from gluon import current
+T = current.T
 import datetime
 
 def getMessageCount(db, discussion_id):
@@ -22,26 +24,22 @@ def getLastMessageTime(db, discussion_id):
     if elapsed_days == 0:
         elapsed_seconds = delta_time.seconds
         if elapsed_seconds < 5:
-            return "just now"
+            return T("just now")
         if elapsed_seconds < 60:
-            return str(elapsed_seconds) + " seconds ago"
-        if elapsed_seconds < 120:
-            return "a minute ago"
+            return T("%s %%{second} ago", symbols=elapsed_seconds)
         if elapsed_seconds < 60 * 60:
-            return str(elapsed_seconds / 60) + " minutes ago"
+            return T("%s %%{minute} ago", symbols=(elapsed_seconds / 60))
         if elapsed_seconds < 60 * 60 * 24:
-            return str(elapsed_seconds / 60 / 60) + " hours ago"
+            return T("%s %%{hour} ago", symbols=(elapsed_seconds / 60 / 60))
     if elapsed_days == 1:
         return "yesterday"
     if elapsed_days < 7:
-        return str(elapsed_days) + " days ago"
-    if elapsed_days < 31:
-        return str(elapsed_days / 7) + " weeks ago"
+        return T("%s %%{day} ago", symbols=(elapsed_days))
+    if elapsed_days < 30:
+        return T("%s %%{week} ago", symbols=(elapsed_days / 7))
     if elapsed_days < 365:
-        return str(elapsed_days / 30) + " months ago"
-    if elapsed_days < 365 * 2:
-        return "a year ago"
-    return str(elapsed_days / 365) + " years ago"
+        return T("%s %%{month} ago", symbols=(elapsed_days / 30))
+    return T("%s %%{year} ago", symbols=(elapsed_days / 365))
 
 def hasUserContributed(db, discussion_id, user_id):
     return db((db.message.conversation == discussion_id) & (db.message.author == user_id)).count() > 0
