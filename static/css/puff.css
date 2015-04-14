@@ -547,16 +547,16 @@ Centralised Things
         padding-left: 10%;
         padding-right: 10%;
     }
-    nav.central {
-        padding: 0;
-        text-align: center;
-    }
     nav > ul {
         list-style: none;
         margin-bottom: 0;
     }
     nav.horizontal > * {
         display: inline-block;
+    }
+    nav.horizontal.central {
+        padding: 0;
+        text-align: center;
     }
     nav.horizontal > ul > li {
         display: inline-block;
@@ -569,10 +569,6 @@ Centralised Things
     nav.horizontal > ul.float-right > li {
         margin-left: 1em;
         margin-right: 0;
-    }
-    nav.horizontal.large-spacing > ul > li {
-        margin-left: 2em;
-        margin-right: 2em;
     }
     nav > ul > li > a > .fa {
         padding-right: 0.1em;
