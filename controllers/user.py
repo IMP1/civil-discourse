@@ -2,7 +2,6 @@
 
 # 
 def login():
-    print(request.vars)
     if request.vars.redirect:
         session.redirection = request.vars.redirect
     # Create the form.
