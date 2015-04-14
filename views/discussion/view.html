@@ -19,7 +19,7 @@
 {{ end }}
 <article id="discussion-contents">
     <h2 class="centre-align">{{ =db.conversation[discussion_id].title }}</h2>
-    {{ for message in discussions.getMessages(discussion_id, db): }}
+    {{ for message in discussions.getMessages(db, discussion_id): }}
     <div id="message-{{=message.id}}" class="message">
         <div class="message-author">
             {{ =db.user(message.author).username }}
