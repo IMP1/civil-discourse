@@ -1,2 +1,3 @@
-Write something about this app.
-Developed with web2py.
+# Civil Discourse
+
+The website designed to facilitate arguments on the internet (everybody's favourite pasttime).
