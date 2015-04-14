@@ -28,6 +28,8 @@ def view():
     return dict(discussion_id=discussion_id, form=form)
 
 def search():
+    if request.vars.search_text == "":
+        redirect(URL('search'))
     return dict()
 
 def rules():
