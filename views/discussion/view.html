@@ -57,7 +57,7 @@
 {{ else: }}
 <div class="centre-align">
     You need to be signed in to add to this discussion.
-    <a href="{{ =URL('user', 'login', vars={'redirect': URL(args=request.args, vars=request.vars)}) }}">Log in</a> or 
-    <a href="{{ =URL('user', 'register', vars={'redirect': URL(args=request.args, vars=request.vars)}) }}">Register</a>.
+    <a href="{{ =URL('user', 'login', vars={'redirect': URL(args=request.args, vars=request.vars)}) }}" title="Login">Log in</a> or 
+    <a href="{{ =URL('user', 'register', vars={'redirect': URL(args=request.args, vars=request.vars)}) }}" title="User Registration">Register</a>.
 </div>
 {{ pass }}
