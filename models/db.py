@@ -27,3 +27,9 @@ db.define_table('conversation_tag',
                     Field('conversation', db.conversation),
                     Field('tag', db.tag,)
                )
+
+if db(db.tag.id > 0).count() == 0:
+    db.tag.insert(name="cd-rules", scope="site")
+    db.tag.insert(name="religion", scope="user")
+    db.tag.insert(name="politics", scope="user")
+    db.tag.insert(name="philosophy", scope="user")
