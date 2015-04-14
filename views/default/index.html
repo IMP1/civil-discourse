@@ -3,40 +3,51 @@
 <link type="text/css" href="{{ =URL('static', 'css/cd-index.css') }}" rel="stylesheet" />
 {{ end }}
 <section>
-    <h2>Welcome</h2>
-    <p>Welcome to Civil Discourse, the website designed to make arguing on the internet even more enjoyable.</p>
+    <h2>{{ =T('Welcome') }}</h2>
+    <p>
+        {{ =T('Welcome to Civil Discourse, the website designed to make arguing on the internet even more enjoyable.') }}
+        {{ =T('Browse the discussions taking place, or start your own if you want to talk about something else.') }}
+        {{ =T('If this is your first time here, you might want to check out the rules and read some existing discussions to get yourself orientated.') }}
+    </p>
     <nav id="useful-links" class="horizontal central">
         <ul>
             <li>
-                <a href="{{ =URL('discussion', 'search') }}" title="All Discussions">
+                <a href="{{ =URL('discussion', 'search') }}" title="{{ =T('All Discussions') }}">
                     <span class="fa fa-comments fa-3x"></span>
                     <br />
-                    All Discussions
+                    {{ =T('View All Discussions') }}
                 </a>
             </li>
             <li>
-                <a href="{{ =URL('default', 'about') }}" title="About Civil Discourse">
+                <a href="{{ =URL('default', 'about') }}" title="{{ =T('About Civil Discourse') }}">
                     <span class="fa fa-question fa-3x"></span>
                     <br />
-                    About Civil Discourse
+                    {{ =T('About Civil Discourse') }}
                 </a>
             </li>
             <li>
-                <a href="{{ =URL('discussion', 'rules') }}" title="Rules of Posting">
+                <a href="{{ =URL('discussion', 'rules') }}" title="{{ =T('Rules of Posting') }}">
                     <span class="fa fa-list-ol fa-3x"></span>
                     <br />
-                    Rules of Civil Discourse
+                    {{ =T('Rules of Civil Discourse') }}
                 </a>
             </li>
         </ul>
     </nav>
 </section>
 <section>
-    <h2>Recent Comments</h2>
+    <h2>{{ =T('Recent Comments') }}</h2>
     <ul class="unlabled comment-list">
-        {{ for message in db(db.message.id > 0).select(orderby=db.message.time, limitby=(0, 10)): }}
+        {{ for message in discussions.getRecentMessages(db, 6): }}
         <li>
-            <a href="{{ =URL('discussion', 'view', args=[message.conversation], anchor='message-'+str(message.id)) }}" title="Discussion {{ =message.conversation }}">{{ =message.contents }}</a>
+            <a href="{{ =URL('discussion', 'view', args=[message.conversation], anchor='message-'+str(message.id)) }}" title="{{ =T('Discussion') }} {{ =message.conversation }}">
+                <q>{{ =message.contents }}</q>
+                <div>
+                    <span class="message-discussion">
+                    {{ =T('in') }} <strong>{{ =db.conversation(message.conversation).title }}</strong>
+                    </span>
+                </div>
+            </a>
         </li>
         {{ pass }}
     </ul>
