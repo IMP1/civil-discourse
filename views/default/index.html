@@ -1,7 +1,39 @@
 {{ extend 'layout.html' }}
+{{ block styles }}
+<link type="text/css" href="{{ =URL('static', 'css/cd-index.css') }}" rel="stylesheet" />
+{{ end }}
+<section>
+    <h2>Welcome</h2>
+    <p>Welcome to Civil Discourse, the website designed to make arguing on the internet even more enjoyable.</p>
+    <nav id="useful-links" class="horizontal central">
+        <ul>
+            <li>
+                <a href="{{ =URL('discussion', 'search') }}" title="All Discussions">
+                    <span class="fa fa-comments fa-3x"></span>
+                    <br />
+                    All Discussions
+                </a>
+            </li>
+            <li>
+                <a href="{{ =URL('default', 'about') }}" title="About Civil Discourse">
+                    <span class="fa fa-question fa-3x"></span>
+                    <br />
+                    About Civil Discourse
+                </a>
+            </li>
+            <li>
+                <a href="{{ =URL('discussion', 'rules') }}" title="Rules of Posting">
+                    <span class="fa fa-list-ol fa-3x"></span>
+                    <br />
+                    Rules of Civil Discourse
+                </a>
+            </li>
+        </ul>
+    </nav>
+</section>
 <section>
     <h2>Recent Comments</h2>
-    <ul>
+    <ul class="unlabled comment-list">
         {{ for message in db(db.message.id > 0).select(orderby=db.message.time, limitby=(0, 10)): }}
         <li>
             <a href="{{ =URL('discussion', 'view', args=[message.conversation], anchor='message-'+str(message.id)) }}" title="Discussion {{ =message.conversation }}">{{ =message.contents }}</a>
