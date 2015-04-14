@@ -4,13 +4,13 @@ nav#useful-links {
 }
 
 nav#useful-links li {
+    width: 12rem;
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
 nav#useful-links a {
-    display: block;
-    width: 100%;
+    display: inline-block;
     height: 100%;
     padding-bottom: 1px;
 }
