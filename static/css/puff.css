@@ -845,6 +845,13 @@ Style
         color: rgba(0, 0, 0, 0.7);
     }
 
+    .fa {
+        cursor: default;
+    }
+    sup.fa, sub.fa, small.fa {
+        font-size: 0.7em;
+    }
+
     /*
     Targeted link to fade.
     --------------------------------------*/
