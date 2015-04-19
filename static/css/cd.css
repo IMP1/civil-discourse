@@ -15,6 +15,94 @@ article#discussion-contents {
     margin-bottom: 2rem;
 }
 
-ul.comment-list li {
-    margin-bottom: 2rem;
+ul.comment-list {
+    text-align: center;
+}
+    
+ul.comment-list > li {
+    display: inline-block;
+    width: 45%;
+    height: 11rem;
+    overflow: hidden;
+    margin: 1rem;
+    margin-bottom: 0;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 0.5rem;
+    text-align: left;
+}
+
+ul.comment-list > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #E0E3E5;
+    position: relative;
+}
+
+ul.comment-list > li > a:hover {
+    background-color: #C1C1C1;
+    cursor: pointer;
+    border: none;
+}
+
+ul.comment-list > li > a > q {
+    padding: 1rem;
+    padding-bottom: 0;
+    display: block;
+    font-style: italic;
+    height: 8rem;
+}
+
+ul.comment-list > li > a > div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: inherit;
+    z-index: 1;
+    margin-bottom: 0;
+    padding-left: 2rem;
+    border-top: 1px solid rgb(192, 192, 192);
+}
+
+ul.conversation-list > li {
+    margin-top: 2rem;
+}
+
+ul.conversation-list > li > div.tag-list span.tag {
+    margin-right: 0.2rem;
+    border: 1px solid rgb(192, 192, 192);
+    background-color: #E0E3E5;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+}
+ul.conversation-list > li > div.conversation-links > a {
+    margin-right: 3rem;
+}
+
+.tooltip {
+    cursor: default;
+}
+.tooltip:after {
+    content: attr(data-title);
+    display: none;
+    position: relative;
+    top: -3rem;
+    z-index: 1;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    background-color: rgb(32, 32, 32);
+    color: #fff;
+}
+.tooltip:hover:after {
+    display: block;
+}
+
+.site-tag {
+    color: #b4212d;
+}
+
+.user-tag {
+    color: #195ec6;
 }
