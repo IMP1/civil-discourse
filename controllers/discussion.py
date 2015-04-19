@@ -4,7 +4,7 @@ import datetime
 def new():
     if not session.logged_in_user:
         session.redirection = URL('discussion', 'new', vars=request.vars)
-        session.flash = SPAN('You are not currently signed in. Sign in or ', A('Register', _href=URL('user', 'new')), '!')
+        session.flash = SPAN('You are not currently signed in. Sign in or ', A('Register', _href=URL('user', 'register')), '!')
         redirect(URL('user', 'login'))
     # Create the form.
     form = SQLFORM.factory(db.conversation.title, db.message.contents)

@@ -33,7 +33,6 @@
                 <form action="{{ =URL('discussion', 'search') }}" method="get" role=search>
                     <input type="search" role=search name="search_text" class="appended prepended" placeholder="{{ =T('Search Discussions') }}" tabindex="2">
                     <button type="submit" class="append search" tabindex="2" title="{{ =T('Search') }}"><span class="fa fa-search" title="{{ =T('Go') }}"></span></button>
-<!--                    <input type="submit" value="{{ =T('Go') }}" class="append search" tabindex="2">-->
                 </form>
                 <ul class="float-right">
                     {{ if session.logged_in_user: }}
