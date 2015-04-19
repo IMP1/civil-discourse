@@ -27,21 +27,21 @@
             </div>
             <nav class="horizontal" role=navigation>
                 <ul>
-                    <li><a href="{{ =URL('default', 'index') }}" title="Homepage" tabindex="1"><span class="fa fa-home"></span>{{ =T('Home') }}</a></li>
-                    <li><a href="{{ =URL('discussion', 'new') }}" title="New Discussion" tabindex="1"><span class="fa fa-plus"></span>{{ =T('New Discussion') }}</a></li>
+                    <li><a href="{{ =URL('default', 'index') }}" title="{{ =T('Homepage') }}" tabindex="1"><span class="fa fa-home"></span>{{ =T('Home') }}</a></li>
+                    <li><a href="{{ =URL('discussion', 'new') }}" title="{{ =T('New Discussion') }}" tabindex="1"><span class="fa fa-plus"></span>{{ =T('New Discussion') }}</a></li>
                 </ul>
                 <form action="{{ =URL('discussion', 'search') }}" method="get" role=search>
                     <input type="search" role=search name="search_text" class="appended prepended" placeholder="{{ =T('Search Discussions') }}" tabindex="2">
-                    <button type="submit" class="append search" tabindex="2">Go</button>
+                    <button type="submit" class="append search" tabindex="2" title="{{ =T('Search') }}"><span class="fa fa-search" title="{{ =T('Go') }}"></span></button>
 <!--                    <input type="submit" value="{{ =T('Go') }}" class="append search" tabindex="2">-->
                 </form>
                 <ul class="float-right">
                     {{ if session.logged_in_user: }}
-                    <li><a href="{{ =URL('user', 'profile') }}" title="User Profile" tabindex="3"><span class="fa fa-user"></span>{{ =db.user(session.logged_in_user).username }}'s Profile</a></li>
-                    <li><a href="{{ =URL('user', 'logout') }}" title="Log Out" tabindex="3"><span class="fa fa-sign-out"></span>{{ =T('Log Out') }}</a></li>
+                    <li><a href="{{ =URL('user', 'profile') }}" title="{{ =T('User Profile') }}" tabindex="3"><span class="fa fa-user"></span>{{ =db.user(session.logged_in_user).username }}'s Profile</a></li>
+                    <li><a href="{{ =URL('user', 'logout') }}" title="{{ =T('Log Out') }}" tabindex="3"><span class="fa fa-sign-out"></span>{{ =T('Log Out') }}</a></li>
                     {{ else: }}
-                    <li><a href="{{ =URL('user', 'register') }}" title="User Registration" tabindex="3"><span class="fa fa-user-plus"></span>{{ =T('Register') }}</a></li>
-                    <li><a href="{{ =URL('user', 'login') }}" title="Log In" tabindex="3"><span class="fa fa-sign-in"></span>{{ =T('Log In') }}</a></li>
+                    <li><a href="{{ =URL('user', 'register') }}" title="{{ =T('User Registration') }}" tabindex="3"><span class="fa fa-user-plus"></span>{{ =T('Register') }}</a></li>
+                    <li><a href="{{ =URL('user', 'login') }}" title="{{ =T('Log In') }}" tabindex="3"><span class="fa fa-sign-in"></span>{{ =T('Log In') }}</a></li>
                     {{ pass }}
                 </ul>
             </nav>
@@ -59,9 +59,9 @@
         </main>
         <footer>
             <span class="mirrored">&copy;</span> Copyleft IMP1 2015 &mdash;
-            <a href="https://github.com/IMP1/civil-discourse" title="Github Repository" target="_blank">
+            <a href="https://github.com/IMP1/civil-discourse" title="{{ =T('Github Repository') }}" target="_blank">
                 <span class="fa fa-github"></span>
-                Civil Discourse Github<sup><span class="fa fa-external-link" title="external link"></span></sup>
+                Civil Discourse Github<sup><span class="fa fa-external-link" title="{{ =T('external link') }}"></span></sup>
             </a>
         </footer>
         {{ block scripts }}
