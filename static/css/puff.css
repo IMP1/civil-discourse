@@ -378,6 +378,12 @@ Inputs
         border: 1px solid #aaa;
         box-shadow: none;
     }
+    button:active:hover,
+    input[type="button"]:active:hover,
+    input[type="submit"]:active:hover {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
 
     button.append,
     input[type="button"].append,
@@ -814,7 +820,6 @@ Centralised Things
         margin-top: 3em;
     }
 
-
 /*
 Style
 ----------------------------------------------*/
@@ -845,8 +850,15 @@ Style
         color: rgba(0, 0, 0, 0.7);
     }
 
+    /*
+    Font-Awesome Stuff
+    --------------------------------------*/
     .fa {
         cursor: default;
+    }
+    button .fa,
+    a .fa {
+        cursor: pointer;
     }
     sup.fa, sub.fa, small.fa {
         font-size: 0.7em;
