@@ -1,5 +1,5 @@
 /*
-Funcionality
+Functionality
 ----------------------------------------------*/
 .float-left {
     display: inline-block;
@@ -40,6 +40,14 @@ Funcionality
 .clear {
     clear: both;
     margin: 0;
+}
+
+*, 
+*:before, 
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /*
@@ -426,14 +434,6 @@ Inputs
 /*
 Layout
 ----------------------------------------------*/
-*, 
-*:before, 
-*:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 body {
     overflow-y: scroll;
     width: 1024px;
