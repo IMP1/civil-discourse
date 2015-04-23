@@ -2,12 +2,6 @@ from gluon import current
 T = current.T
 import datetime
 
-def getMessageCount(db, discussion_id):
-    return db(db.message.conversation == discussion_id).count()
-
-def getMessages(db, discussion_id):
-    return db(db.message.conversation == discussion_id).select(orderby=db.message.time)
-
 def getRecentMessages(db, count):
     return db(db.message.id > 0).select(orderby=~db.message.time, limitby=(0, count))
 
