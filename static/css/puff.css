@@ -824,6 +824,10 @@ Centralised Things
 Style
 ----------------------------------------------*/
 
+    .highlighted {
+        background-color: #ff4;
+    }
+
     input[type="search"] {
         border-top-left-radius: 0.5em;
         border-bottom-left-radius: 0.5em;
