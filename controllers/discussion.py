@@ -29,8 +29,11 @@ def view():
 
 def search():
     if request.vars.search_text == "":
-        redirect(URL('search'))
+        redirect(URL('all'))
     return dict()
 
 def rules():
+    return dict()
+
+def all():
     return dict()
