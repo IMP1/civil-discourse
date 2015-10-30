@@ -78,9 +78,13 @@ def getTagSearchResults(db, search_query):
     return db(query).select(db.conversation.ALL)
 
 def highlightWords(text, words):
-    result = ""
+    if not text or not words:
+        return text
     if type(words) is str:
-        begin = re.search(words, text, re.IGNORECASE).start()
-        end = begin + len(words)
-        return CAT(text[:begin], SPAN(text[begin:end], _class="highlighted"), text[end:])
+        if re.search(words, text, re.IGNORECASE):
+            begin = re.search(words, text, re.IGNORECASE).start()
+            end = begin + len(words)
+            return CAT(text[:begin], SPAN(text[begin:end], _class="highlighted"), highlightWords(text[end:], words))
+        else:
+            return text
     # Add an alternative for a list of words

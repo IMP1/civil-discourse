@@ -4,21 +4,22 @@
     <h2>{{ =T('Search Results for "%s"', symbols=request.vars.search_text) }}</h2>
     {{ search_results = discussions.getDiscussionSearchResults(db, request.vars.search_text) }}
     {{ elif request.vars.search_tag: }}
-    <h2>{{ =T('Search Results for "%s" Tag', symbols=request.vars.search_tag) }}</h2>
+    <h2>{{ =T('Search Results for the "%s" Tag', symbols=request.vars.search_tag) }}</h2>
     {{ search_results = discussions.getTagSearchResults(db, request.vars.search_tag) }}
     {{ else: }}
     <h2>{{ =T('All Discussions') }}</h2>
     {{ search_results = db(db.conversation.id > 0).select() }}
     {{ pass }}
+    <h3>{{ =T('Discussions') }}</h3>
     <ul class="unlabled conversation-list">
         {{ for discussion in search_results: }}
         <li>
-            <h3>
+            <h4>
                 {{ =discussions.highlightWords(discussion.title, request.vars.search_text or "") }}
                 {{ if discussions.hasUserContributed(db, discussion.id, session.logged_in_user): }}
                 <sup title="{{ =T('You have contributed to this discussion') }}" class="fa fa-exclamation"></sup>
                 {{ pass }}
-            </h3>
+            </h4>
             <div class="tag-list">
                 {{ if discussions.hasSiteTags(db, discussion.id): }}
                 <span title="{{ =T('Site Tags') }}" class="fa fa-tag fa-lg site-tag"></span>
@@ -48,4 +49,32 @@
         </li>
         {{ pass }}
     </ul>
+    {{ if not search_results: }}
+    <div class="small">
+        {{ =T('There are no discussions with "%s" in the title.', symbols=request.vars.search_text) }}
+    </div>
+    {{ pass }}
+    {{ if request.vars.search_text: }}
+    <h3>{{ =T('Comments') }}</h3>
+    <ul class="unlabled comment-list">
+        {{ search_results = db(db.message.contents.contains(request.vars.search_text)).select() }}
+        {{ for comment in search_results: }}
+        <li>
+            <a href="{{ =URL('discussion', 'view', args=[comment.conversation], anchor='comment-'+str(comment.id)) }}" title="{{ =T('Discussion') }} {{ =comment.conversation }}">
+                <q>{{ =discussions.highlightWords(comment.contents, request.vars.search_text or "") }}</q>
+                <div>
+                    <span class="message-discussion">
+                    {{ =T('in') }} <strong>{{ =db.conversation(comment.conversation).title }}</strong>
+                    </span>
+                </div>
+            </a>
+        </li>
+        {{ pass }}
+    </ul>
+    {{ if not search_results: }}
+    <div class="small">
+        {{ =T('There are no comments containing "%s".', symbols=request.vars.search_text) }}
+    </div>
+    {{ pass }}
+    {{ pass }}
 </section>

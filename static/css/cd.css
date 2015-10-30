@@ -16,7 +16,10 @@ article#discussion-contents {
 }
 
 ul.comment-list {
-    text-align: center;
+    text-align: left;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
     
 ul.comment-list > li {
@@ -70,6 +73,7 @@ ul.comment-list > li > a > div {
 
 ul.conversation-list > li {
     margin-top: 2rem;
+    margin-left: 2rem;
 }
 
 ul.conversation-list > li > div.tag-list a.tag {
@@ -86,6 +90,10 @@ ul.conversation-list > li > div.tag-list a.tag:hover {
 }
 ul.conversation-list > li > div.conversation-links > a {
     margin-right: 3rem;
+}
+
+ul.message-list {
+
 }
 
 .tooltip {

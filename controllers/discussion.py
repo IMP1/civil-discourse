@@ -28,6 +28,9 @@ def view():
     return dict(discussion_id=discussion_id, form=form)
 
 def search():
+    if request.vars.search_text == "" and not request.vars.search_tag:
+        # Remove empty search text var in URL
+        redirect(URL('discussion', 'search'))
     return dict()
 
 def rules():
