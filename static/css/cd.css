@@ -68,12 +68,17 @@ ul.conversation-list > li {
     margin-top: 2rem;
 }
 
-ul.conversation-list > li > div.tag-list span.tag {
+ul.conversation-list > li > div.tag-list a.tag {
     margin-right: 0.2rem;
     border: 1px solid rgb(192, 192, 192);
     background-color: #E0E3E5;
+    color: #000;
     border-radius: 0.2rem;
     padding: 0.2rem;
+}
+ul.conversation-list > li > div.tag-list a.tag:hover {
+    background-color: #fff;
+    color: #888;
 }
 ul.conversation-list > li > div.conversation-links > a {
     margin-right: 3rem;

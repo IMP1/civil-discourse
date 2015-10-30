@@ -1,9 +1,8 @@
+import datetime
+import re
 from gluon import current
 from gluon.html import CAT, SPAN
 T = current.T
-import datetime
-import re
-from message import *
 
 def getRecentMessages(db, count):
     return db(db.message.id > 0).select(orderby=~db.message.time, limitby=(0, count))
@@ -72,6 +71,11 @@ def getMessageSearchResults(db, search_query):
     query = db.message.contents.contains(search_query)
     # Add extra searches here
     return db(query).select(db.message.ALL)
+
+def getTagSearchResults(db, search_query):
+    query = ((db.conversation_tag.tag == db.tag.id) & (db.conversation_tag.conversation == db.conversation.id) & (db.tag.name.contains(search_query)))
+    # Add extra searches here
+    return db(query).select(db.conversation.ALL)
 
 def highlightWords(text, words):
     result = ""

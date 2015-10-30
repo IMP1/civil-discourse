@@ -1,8 +1,8 @@
 {{ extend 'layout.html' }}
 <section>
-	<h2>{{ =T('All Discussions') }}</h2>
-	<ul class="unlabled conversation-list">
-		{{ for discussion in db(db.conversation.id > 0).select(): }}
+    <h2>{{ =T('Search Results for "%s" Tag', symbols=request.vars.search_tag) }}</h2>
+    <ul class="unlabled conversation-list">
+        {{ for discussion in discussions.getTagSearchResults(db, request.vars.search_tag): }}
         <li>
             <h3>
                 {{ =discussion.title }}
