@@ -28,18 +28,7 @@ def view():
     return dict(discussion_id=discussion_id, form=form)
 
 def search():
-    if not request.vars.search_text:
-        if request.vars.search_tag:
-            redirect(URL('tags'))
-        else:
-            redirect(URL('all'))
     return dict()
 
 def rules():
-    return dict()
-
-def all():
-    return dict()
-
-def tags():
     return dict()
