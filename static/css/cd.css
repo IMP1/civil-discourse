@@ -16,16 +16,21 @@ article#discussion-contents {
 }
 
 a.tag {
-    border: 1px solid rgb(192, 192, 192);
+    border: 1px solid #134DA5;
     background-color: #E0E3E5;
     color: #000;
     border-radius: 0.2rem;
     padding: 0.2rem;
 }
 
-a:hover.tag {
-    background-color: #fff;
-    color: #888;
+a.tag:hover, a.tag:focus {
+    border-color: #DE2C3B;
+    background-color: #F0F0F0;
+    color: #000;
+}
+
+q.message, p.message {
+    white-space: pre-wrap;
 }
 
 ul.comment-list {
@@ -57,7 +62,8 @@ ul.comment-list > li > a {
     position: relative;
 }
 
-ul.comment-list > li > a:hover {
+ul.comment-list > li > a:hover,
+ul.comment-list > li > a:focus {
     border-color: #DE2C3B;
     background-color: #f0f0f0;
     color: #000;
@@ -100,7 +106,7 @@ ul.conversation-list > li > div.conversation-links > a {
 .tooltip {
     cursor: default;
 }
-.tooltip:after {
+.tooltip::after {
     content: attr(data-title);
     display: none;
     position: relative;
@@ -113,8 +119,13 @@ ul.conversation-list > li > div.conversation-links > a {
     background-color: rgb(32, 32, 32);
     color: #fff;
 }
-.tooltip:hover:after {
+.tooltip:hover::after,
+.tooltip:focus::after {
     display: block;
+}
+
+.site-tag, .user-tag {
+    margin-right: 0.5rem;
 }
 
 .site-tag {

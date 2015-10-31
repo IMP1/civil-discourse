@@ -41,7 +41,7 @@
         {{ for message in discussions.getRecentMessages(db, 6): }}
         <li>
             <a href="{{ =URL('discussion', 'view', args=[message.conversation], anchor='message-'+str(message.id)) }}" title="{{ =T('Discussion') }} {{ =message.conversation }}">
-                <q>{{ =message.contents }}</q>
+                <q class="message">{{ =discussions.formatMessage(message.contents) }}</q>
                 <div>
                     <span class="message-discussion">
                     {{ =T('in') }} <strong>{{ =db.conversation(message.conversation).title }}</strong>
