@@ -23,9 +23,13 @@
             <div class="tag-list">
                 {{ if discussions.hasSiteTags(db, discussion.id): }}
                 <span title="{{ =T('Site Tags') }}" class="fa fa-tag fa-lg site-tag"></span>
-                {{ for tag in discussions.getSiteTags(db, discussion.id): }}
-                <a href="{{ =URL('discussion', 'search', vars={'search_tag': tag.name}) }}" class="tag">{{ =tag.name }}</a>
-                {{ pass }}
+                <ul class="tag-list">
+                    {{ for tag in discussions.getSiteTags(db, discussion.id): }}
+                    <li>
+                    <a href="{{ =URL('discussion', 'search', vars={'search_tag': tag.name}) }}" class="tag">{{ =tag.name }}</a>
+                    </li>
+                    {{ pass }}
+                </ul>
                 {{ pass }}
                 {{ if discussions.hasUserTags(db, discussion.id): }}
                 <span title="{{ =T('User Tags') }}" class="fa fa-tag fa-lg user-tag"></span>
