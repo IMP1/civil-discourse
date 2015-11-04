@@ -1,4 +1,10 @@
 {{ extend 'layout.html' }}
+{{ block styles }}
+<link type="text/css" href="{{ =URL('static', 'css/cd-discussion.css') }}" rel="stylesheet">
+{{ end }}
+{{ block scripts }}
+<script src="{{ =URL('static', 'js/tag_adder.js') }}"></script>
+{{ end }}
 {{ block flash }}
 {{ if form.errors: }}
 <div role=note class="alert alert-error">
@@ -14,7 +20,7 @@
     <h2>{{ =T("Create a new discussion") }}</h2>
     <p>
         {{ =T("Enter a discussion title and the topic for your discussion into the boxes below.") }}
-        {{ =T("You'll be sent to your newly created discussion and from there you can copy & paste the URL to send round to encourage discussion.") }}
+        {{ =T("You'll be sent to your newly created discussion and from there you can copy and paste the URL to send round to encourage discussion.") }}
     </p>
     <form id="convo-creation"
           action="#" enctype="multipart/form-data" method="post" 
@@ -25,7 +31,7 @@
                    placeholder="{{ =T('Discussion Title') }}"
                    value="{{ =request.vars.title or '' }}"
                    class="{{ =('error clarified' if form.errors.title else '') }}"
-                   type="text" />
+                   type="text">
             <br>
             {{ if form.errors.title: }}
             <small class="error-message">{{ =T(form.errors.title) }}</small>
@@ -38,16 +44,23 @@
             <small class="error-message">{{ =T(form.errors.contents) }}</small>
             <br>
             {{ pass }}
+            <h4>Discussion Tags</h4>
+            <ul id="added-tags" class="tag-list"></ul>
+            <br>
+            <button type="button" onclick="add_tag('cd-rules', '{{=URL('discussion', 'search')}}');">Add Tag</button>
         </div>
         <input type="submit" 
-               value="{{ =T('Start Discussion') }}" />
+               value="{{ =T('Start Discussion') }}">
         <div style="display:none;">
             <input name="_formkey" 
                    type="hidden" 
-                   value="{{ =form.formkey }}" />
+                   value="{{ =form.formkey }}">
             <input name="_formname" 
                    type="hidden" 
-                   value="{{ =form.formname }}" />
+                   value="{{ =form.formname }}">
+            <input name="tags"
+                   type=""
+                   value="">
         </div>
     </form>
 </section>

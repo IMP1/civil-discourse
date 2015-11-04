@@ -40,3 +40,7 @@ div.arrow-right {
     top: 0.3em;
     right: 0.3em;
 }
+
+ul#added-tags {
+    height: 2rem;
+}

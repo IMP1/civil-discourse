@@ -124,14 +124,20 @@ ul.conversation-list > li > div.conversation-links > a {
     display: block;
 }
 
-.site-tag, .user-tag {
-    margin-right: 0.5rem;
-}
-
 .site-tag {
     color: #b4212d;
 }
 
 .user-tag {
     color: #195ec6;
+}
+
+ul.tag-list {
+    display: inline-block;
+    list-style: none;
+}
+
+ul.tag-list > li {
+    display: inline-block;
+    margin-left: 0.5rem;
 }
