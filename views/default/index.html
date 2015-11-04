@@ -1,6 +1,6 @@
 {{ extend 'layout.html' }}
 {{ block styles }}
-<link type="text/css" href="{{ =URL('static', 'css/cd-index.css') }}" rel="stylesheet" />
+<link type="text/css" href="{{ =URL('static', 'css/cd-index.css') }}" rel="stylesheet">
 {{ end }}
 <section>
     <h2>{{ =T('Welcome') }}</h2>
@@ -14,21 +14,21 @@
             <li>
                 <a href="{{ =URL('discussion', 'search') }}" title="{{ =T('All Discussions') }}">
                     <span class="fa fa-comments fa-3x"></span>
-                    <br />
+                    <br>
                     {{ =T('View All Discussions') }}
                 </a>
             </li>
             <li>
                 <a href="{{ =URL('default', 'about') }}" title="{{ =T('About Civil Discourse') }}">
                     <span class="fa fa-question fa-3x"></span>
-                    <br />
+                    <br>
                     {{ =T('About Civil Discourse') }}
                 </a>
             </li>
             <li>
                 <a href="{{ =URL('discussion', 'rules') }}" title="{{ =T('Rules of Posting') }}">
                     <span class="fa fa-list-ol fa-3x"></span>
-                    <br />
+                    <br>
                     {{ =T('Rules of Civil Discourse') }}
                 </a>
             </li>

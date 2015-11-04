@@ -1,14 +1,14 @@
 {{ extend 'layout.html' }}
 {{ block flash }}
-            {{ if form.errors: }}
-            <div role=note class="alert alert-error">
-                {{ =response.flash }}
-            </div>
-            {{ elif response.flash: }}
-            <div role=note class="alert alert-success">
-                {{ =response.flash }}
-            </div>
-            {{ pass }}
+    {{ if form.errors: }}
+    <div role=note class="alert alert-error">
+        {{ =response.flash }}
+    </div>
+    {{ elif response.flash: }}
+    <div role=note class="alert alert-success">
+        {{ =response.flash }}
+    </div>
+    {{ pass }}
 {{ end }}
 <section>
     <h2>Register to Civil Discourse</h2>
@@ -24,14 +24,14 @@
             {{ include 'form/input/password.html' }}
         </div>
         <input type="submit" 
-               value="{{ =T('Register') }}" />
+               value="{{ =T('Register') }}">
         <div style="display:none;">
             <input name="_formkey" 
                    type="hidden" 
-                   value="{{ =form.formkey }}" />
+                   value="{{ =form.formkey }}">
             <input name="_formname" 
                    type="hidden" 
-                   value="{{ =form.formname }}" />
+                   value="{{ =form.formname }}">
         </div>
     </form>
 </section>

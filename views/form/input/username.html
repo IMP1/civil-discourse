@@ -3,7 +3,7 @@
        placeholder="{{ =T('Username') }}"
        autofocus="true"
        type="text"
-       value="{{ =request.vars.username or '' }}" />
+       value="{{ =request.vars.username or '' }}">
 <br>
 {{ if form.errors.username: }}
 <small class="error-message">{{ =T(form.errors.username) }}</small>

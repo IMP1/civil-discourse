@@ -4,7 +4,7 @@
 <script src="{{ =URL('static', 'js/discussion_refresher.js') }}"></script>
 {{ end }}
 {{ block styles }}
-<link type="text/css" href="{{ =URL('static', 'css/cd-discussion.css') }}" rel="stylesheet" />
+<link type="text/css" href="{{ =URL('static', 'css/cd-discussion.css') }}" rel="stylesheet">
 {{ end }}
 {{ block flash }}
 {{ if form.errors: }}
@@ -45,14 +45,14 @@
         {{ pass }}
     </div>
     <input type="submit" 
-           value="{{ =T('Add to Discussion') }}" />
+           value="{{ =T('Add to Discussion') }}">
     <div style="display:none;">
         <input name="_formkey" 
                type="hidden" 
-               value="{{ =form.formkey }}" />
+               value="{{ =form.formkey }}">
         <input name="_formname" 
                type="hidden" 
-               value="{{ =form.formname }}" />
+               value="{{ =form.formname }}">
     </div>
 </form>
 {{ else: }}
