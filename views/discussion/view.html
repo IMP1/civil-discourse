@@ -5,6 +5,7 @@
 {{ end }}
 {{ block styles }}
 <link type="text/css" href="{{ =URL('static', 'css/cd-discussion.css') }}" rel="stylesheet">
+<link href="{{ =URL('discussion', 'view', args=[discussion_id, 'feed']) }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
 {{ end }}
 {{ block flash }}
 {{ if form.errors: }}
