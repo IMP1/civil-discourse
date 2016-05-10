@@ -46,21 +46,22 @@
             {{ pass }}
             <h4>Discussion Tags</h4>
             <ul id="added-tags" class="tag-list"></ul>
-            <br>
-            <button type="button" onclick="add_tag('cd-rules', '{{=URL('discussion', 'search')}}');">Add Tag</button>
+            <input id="new-tag"
+                   type="text"
+                   onkeypress="return new_tag_enter(event, '{{=URL('discussion', 'search')}}');"
+                   placeholder="{{ =T('Tag Name') }}">
+            <button type="button" onclick="add_tag('{{=URL('discussion', 'search')}}');">Add Tag</button>
         </div>
         <input type="submit" 
                value="{{ =T('Start Discussion') }}">
-        <div style="display:none;">
+        <div id="hidden-elements"
+             style="display:none;">
             <input name="_formkey" 
                    type="hidden" 
                    value="{{ =form.formkey }}">
             <input name="_formname" 
                    type="hidden" 
                    value="{{ =form.formname }}">
-            <input name="tags"
-                   type=""
-                   value="">
         </div>
     </form>
 </section>
