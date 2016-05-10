@@ -22,20 +22,28 @@
             </h4>
             <div class="tag-list">
                 {{ if discussions.hasSiteTags(db, discussion.id): }}
-                <span title="{{ =T('Site Tags') }}" class="fa fa-tag fa-lg site-tag"></span>
-                <ul class="tag-list">
+                <ul>
                     {{ for tag in discussions.getSiteTags(db, discussion.id): }}
                     <li>
-                    <a href="{{ =URL('discussion', 'search', vars={'search_tag': tag.name}) }}" class="tag">{{ =tag.name }}</a>
+                    <a href="{{ =URL('discussion', 'search', vars={'search_tag': tag.name}) }}" class="tag">
+                    <span title="{{ =T('Civil Discourse Site Tag') }}" class="fa fa-tag fa-lg site-tag"></span>
+                    {{ =tag.name }}
+                    </a>
                     </li>
                     {{ pass }}
                 </ul>
                 {{ pass }}
                 {{ if discussions.hasUserTags(db, discussion.id): }}
-                <span title="{{ =T('User Tags') }}" class="fa fa-tag fa-lg user-tag"></span>
-                {{ for tag in discussions.getUserTags(db, discussion.id): }}
-                {{ pass }}
-                <a href="{{ =URL('discussion', 'search', vars={'search_tag': tag.name}) }}" class="tag">{{ =tag.name }}</a>
+                <ul>
+                    {{ for tag in discussions.getUserTags(db, discussion.id): }}
+                    <li>
+                    <a href="{{ =URL('discussion', 'search', vars={'search_tag': tag.name}) }}" class="tag">
+                    <span title="{{ =T('User Tag: ') + tag.name }}" class="fa fa-tag fa-lg user-tag"></span>
+                    {{ =tag.name }}
+                    </a>
+                    </li>
+                    {{ pass }}
+                </ul>
                 {{ pass }}
             </div>
             {{ count = discussions.getMessageCount(db, discussion.id) }}
@@ -64,7 +72,7 @@
         {{ search_results = db(db.message.contents.contains(request.vars.search_text)).select() }}
         {{ for comment in search_results: }}
         <li>
-            <a href="{{ =URL('discussion', 'view', args=[comment.conversation], anchor='comment-'+str(comment.id)) }}" title="{{ =T('Discussion') }} {{ =comment.conversation }}">
+            <a href="{{ =URL('discussion', 'view', args=[comment.conversation], anchor='message-'+str(comment.id)) }}" title="{{ =T('Discussion') }} {{ =comment.conversation }}">
                 <q>{{ =discussions.highlightWords(comment.contents, request.vars.search_text or "") }}</q>
                 <div>
                     <span class="message-discussion">
