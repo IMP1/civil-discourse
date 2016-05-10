@@ -15,7 +15,7 @@ article#discussion-contents {
     margin-bottom: 2rem;
 }
 
-a.tag {
+.tag {
     border: 1px solid #134DA5;
     background-color: #E0E3E5;
     color: #000;
@@ -23,7 +23,7 @@ a.tag {
     padding: 0.2rem;
 }
 
-a.tag:hover, a.tag:focus {
+.tag:hover, .tag:focus {
     border-color: #DE2C3B;
     background-color: #F0F0F0;
     color: #000;
@@ -132,12 +132,12 @@ ul.conversation-list > li > div.conversation-links > a {
     color: #195ec6;
 }
 
-ul.tag-list {
+div.tag-list ul {
     display: inline-block;
     list-style: none;
 }
 
-ul.tag-list > li {
+div.tag-list ul > li {
     display: inline-block;
     margin-left: 0.5rem;
 }
