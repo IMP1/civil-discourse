@@ -424,12 +424,26 @@ Inputs
         padding-bottom: 0.25rem;
     }
     button.search,
+    input[type="button"].search,
     input[type="submit"].search {
         line-height: 1rem;
         position: relative;
         top: 0px;
     }
 
+    button.undecorated,
+    input[type="button"].undecorated,
+    input[type="submit"].undecorated {
+        background: inherit;
+        border: none;
+        box-shadow: none;
+    }
+    button.undecorated:hover,
+    input[type="button"].undecorated:hover,
+    input[type="submit"].undecorated:hover {
+        color: #de2b3a;
+        cursor: pointer; 
+    }
 
 /*
 Layout
