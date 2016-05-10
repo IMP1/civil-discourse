@@ -42,5 +42,5 @@ div.arrow-right {
 }
 
 ul#added-tags {
-    height: 2rem;
+    min-height: 2rem;
 }
